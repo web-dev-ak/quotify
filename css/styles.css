@@ -1,0 +1,426 @@
+@font-face {
+    font-family: 'Awesome-Serif';
+    src: url(../resources/fonts/AwesomeSerif-ExtraTall.otf);
+}
+
+html,
+body {
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Satoshi', sans-serif;
+}
+
+#body {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--base-100);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* SECTION MAIN WORKING ----------------------------------------- */
+#main-working {
+    max-width: 680px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Language Selector */
+#language-selector-box {
+    position: absolute;
+    top: 100px;
+    width: auto;
+    height: auto;
+    border: 1px solid var(--primary);
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    gap: 5px;
+}
+
+#btn-english {
+    width: 111px;
+    height: 38px;
+    border: none;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#btn-hindi {
+    width: 111px;
+    height: 38px;
+    border: none;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#btn-english, #btn-hindi {
+    background-color: transparent;
+    color: var(--primary);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#btn-english.active, #btn-hindi.active {
+    background-color: var(--primary);
+    color: var(--base-100);
+    border-color: var(--primary);
+}
+
+#btn-english:not(.active):hover, 
+#btn-hindi:not(.active):hover {
+    background-color: var(--neutral);
+    color: var(--base-100);
+    cursor: pointer;
+}
+
+/* Search Box and Generate Button */
+#search-box-suggestion-menu {
+    position: absolute;
+    bottom: 96px;
+    width: 511px;
+    max-height: 300px;
+    display: none;
+    border: 1px solid var(--primary);
+    background-color: var(--base-100);
+    border-radius: 25px;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    list-style-type: none;
+}
+
+#search-box-suggestion-menu::-webkit-scrollbar {
+    width: 5px;
+}
+
+#search-box-suggestion-menu::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 50px;
+}
+
+#search-box-suggestion-menu>li {
+    color: var(--primary);
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px 30px 10px 20px;
+}
+
+#search-box-suggestion-menu>li:hover {
+    background-color: var(--neutral);
+    color: var(--base-100);
+    transition: ease-in 100ms;
+}
+
+#search-box-suggestion-menu.selected {
+    background-color: var(--primary);
+    color: var(--base-100);
+}
+
+
+
+
+#bottom-search-and-button-box {
+    position: absolute;
+    bottom: 40px;
+    width: 720px;
+    height: 48px;
+    padding: 0px 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#search-box {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding-left: 20px;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    background-color: var(--base-100);
+    border-radius: 100px;
+}
+
+#search-box[type="text"] {
+    text-transform: lowercase;
+}
+
+#search-box:focus {
+    outline: none;
+}
+
+#generate-btn {
+    width: 200px;
+    font-size: 16px;
+    padding: 0px 20px;
+    border: none;
+    color: var(--base-100);
+    background-color: var(--accent);
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+/* Main Content - ENGLISH */
+#quote-box-english {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#quote-english {
+    font-family: 'Awesome-Serif';
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--primary);
+    text-align: center;
+}
+
+#writer-name-english {
+    font-size: 20px;
+    color: var(--secondary);
+}
+
+/* Main Content - HINDI */
+#quote-box-hindi {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#quote-hindi {
+    font-family: "Anek Devanagari", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    color: var(--primary);
+    text-align: center;
+    line-height: 1.5;
+}
+
+#writer-name-hindi {
+    font-family: "Mukta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: var(--secondary);
+}
+
+/* SECTION MAIN LANDING ----------------------------------------- */
+#main-landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+#main-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#main-title {
+    font-family: 'Awesome-Serif';
+    font-size: 64px;
+    font-weight: 400;
+    color: var(--primary);
+    text-align: center;
+}
+
+#main-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--secondary);
+    text-align: center;
+}
+
+#main-btn {
+    padding: 13px 30px;
+    font-size: 16px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--accent);
+    color: var(--base-100);
+    cursor: pointer;
+}
+
+/* NAVBAR ----------------------------------------- */
+#nav-bar {
+    width: 100vw;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+#logo {
+    width: auto;
+    height: 40px;
+    fill: var(--primary);
+}
+
+#custom-dropdown {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#theme-switch-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 40px;
+    border: 1px solid var(--primary);
+    background-color: var();
+    border-radius: 100px;
+}
+
+.theme-name {
+    color: var(--primary);
+}
+
+#theme-switch-box-arrow-icon {
+    color: var(--primary);
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+
+@keyframes rotateArrow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+#dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    border: 1px solid var(--primary);
+    background-color: var(--base-100);
+    border-radius: 25px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+    list-style-type: none;
+}
+
+#dropdown-menu::-webkit-scrollbar {
+    width: 5px;
+}
+
+#dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 50px;
+}
+
+#dropdown-menu>li {
+    color: var(--primary);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 10px 30px 10px 20px;
+}
+
+#dropdown-menu>li:hover {
+    background-color: var(--neutral);
+    color: var(--base-100);
+    transition: ease-in 100ms;
+}
+
+.dropdown-item.selected {
+    background-color: var(--primary);
+    color: var(--base-100);
+}
+
+/* FOOTER ----------------------------------------- */
+#footer {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+}
+
+#footer-credits {
+    font-size: 12px;
+    color: var(--primary);
+}
+
+#footer-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+/* MEDIA QUERIES ----------------------------------------- */
+@media (max-width: 720px) {
+    #nav-bar {
+        padding: 0 20px;
+    }
+
+    #main-title {
+        font-size: 56px;
+    }
+
+    #bottom-search-and-button-box {
+        width: 100%;
+    }
+
+    #language-selector-box {
+        top: 100px;
+    }
+
+    #dropdown-menu {
+        right: 20px;
+    }
+
+    #quote-english {
+        font-size: 36px;
+    }
+
+    #quote-hindi {
+        font-size: 36px;
+    }
+}
