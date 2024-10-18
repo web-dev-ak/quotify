@@ -214,7 +214,7 @@ function generateQuote() {
     const category = searchBox.value || ''; // Use empty string if no category is entered
 
     // Fetch the quote from the backend
-    fetch(`http://localhost:5000/api/quotes/${category}`)
+    fetch(`https://quotify-backend-w26w.onrender.com/api/quotes/${category}`)
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -248,7 +248,7 @@ function translateToHindi(quote, author) {
     if (!quote) return;
 
     // Send the translation request to the backend
-    fetch('http://localhost:5000/api/translate', {
+    fetch('https://quotify-backend-w26w.onrender.com/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ quote, fromLang, toLang })
